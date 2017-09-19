@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -28,6 +30,31 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+TEMPLATE_DIRS = [
+    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, "static"),
+]
+
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [
+#             ### ADD YOUR DIRECTORY HERE LIKE SO:
+#             STATICFILES_DIRS[0] + '/templates/'
+#         ],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -37,7 +64,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+CUSTOM_APPS = (
+'idiot',)
 
+INSTALLED_APPS += CUSTOM_APPS
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,8 +88,14 @@ WSGI_APPLICATION = 'idiots.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'idiot_DB',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'ATOMIC_REQUESTS': True,
+        'OPTIONS': {
+                'autocommit': True,
+        },
     }
 }
 
