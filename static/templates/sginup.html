@@ -1,0 +1,26 @@
+<div class="register">
+  <div class="arrow-up"></div>
+  <div class="formholder">
+    <div class="randompad">
+       <fieldset>
+         <label name="email">First  Name</label>
+         <input type="email" placeholder="First Name" />
+         <label name="email">Last  Name</label>
+         <input type="email" placeholder="Last Name" />
+         <label name="email">Email</label>
+         <input type="email" placeholder="example@example.com" />
+         <label name="password">Password</label>
+         <input type="password" placeholder="password"/>
+         <input type="submit" value="Register" />
+       </fieldset>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+  $('#register').on('click', function(){
+    $('.register').fadeToggle('slow');
+    $(this).toggleClass('green');
+  })
+</script>
+  

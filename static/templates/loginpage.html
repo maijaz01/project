@@ -1,24 +1,65 @@
-
-  <div id="wrap">
+<div id="wrap">
   <div id="regbar">
     <div id="navthing">
-      <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
-    <div class="login">
-      <div class="arrow-up"></div>
-      <div class="formholder">
-        <div class="randompad">
-           <fieldset>
-             <label name="email">Email</label>
-             <input type="email" value="example@example.com" />
-             <label name="password">Password</label>
-             <input type="password" />
-             <input type="submit" value="Login" />
- 
-           </fieldset>
+      <h2><a href="#" id="loginform">Login</a> | <a href="#" id="register">Register</a></h2>
+        <div class="login show-hide">
+          <div class="arrow-up"></div>
+          <div class="formholder">
+            <div class="randompad">
+               <fieldset>
+                 <label name="email">Email</label>
+                 <input type="email" placeholder="example@example.com" />
+                 <label name="password">Password</label>
+                 <input type="password" placeholder="password"/>
+                 <input type="submit" value="Login" />
+               </fieldset>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        <div class="register show-hide">
+          <div class="arrow-up"></div>
+          <div class="formholder">
+            <div class="randompad">
+               <fieldset>
+                 <label name="email">First  Name</label>
+                 <input type="email" placeholder="First Name" />
+                 <label name="email">Last  Name</label>
+                 <input type="email" placeholder="Last Name" />
+                 <label name="email">Email</label>
+                 <input type="email" placeholder="example@example.com" />
+                 <label name="password">Password</label>
+                 <input type="password" placeholder="password"/>
+                 <input type="submit" value="Register" />
+               </fieldset>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $('#loginform').on('click', function(){
+    $('.register').addClass('show-hide');
+    if ($('.login').hasClass('show-hide')){
+      $('.login').removeClass('show-hide');
+    }
+    else{
+      $('.login').addClass('show-hide');
+    }
+    $(this).toggleClass('green');
+  })
+</script>
+<script type="text/javascript">
+  $('#register').on('click', function(){
+    $('.login').addClass('show-hide');
+    if ($('.register').hasClass('show-hide')){
+      $('.register').removeClass('show-hide');
+    }
+      else{
+        $('.register').addClass('show-hide');
+      }
+    $(this).toggleClass('green');
+  })
+</script>
+
   
